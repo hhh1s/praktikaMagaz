@@ -1,0 +1,70 @@
+﻿<Window x:Class="praktikaMagaz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:praktikaMagaz"
+        mc:Ignorable="d"
+          Title="Переплёт" Height="900" Width="1200" Background="#FFBBE6E5" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="#FF4598C6"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button" >
+            <Setter Property="Foreground" Value="#FF4598C6"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#FF364282"/>
+        </Style>
+        <ControlTemplate x:Key="овальная кнопка" TargetType="Button">
+
+            <Grid>
+                <Border x:Name="bt" CornerRadius="20" Background="{ TemplateBinding Background }"  />
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" TargetName="bt" Value="#FFC7CAF4"/>
+
+
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="1*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--<Image Source="\image\logo.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,11" Width="125">
+     <Image.Effect>
+         <DropShadowEffect ShadowDepth="0" BlurRadius="20" Color="#FF3D1C89" Opacity="0.65"/>
+     </Image.Effect>-->
+        <!--</Image>-->
+        <TextBlock Grid.Row="0"  Text="электронный магазин для малюток" TextWrapping="Wrap" Width="596" FontSize="33.4" VerticalAlignment="Top" Margin="0,93,0,0" />
+        <TextBlock  Grid.Column="0" Grid.Row="0"  Text="«BABYSMILE»"   HorizontalAlignment="Center" TextWrapping="Wrap" Width="604" FontSize="90"  VerticalAlignment="Top"  />
+        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Text="Логин" VerticalAlignment="Top" FontSize="40"/>
+        <TextBox Name="login" FontSize="25"  Grid.Column="0" Grid.Row="2" Height="40" Width="250" VerticalAlignment="Top" Margin="375,73,375,0"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="Пароль" VerticalAlignment="Top" FontSize="40"/>
+        <TextBox Name="Password" FontSize="25"   Grid.Column="0" Grid.Row="3" Height="40" Width="250" VerticalAlignment="Top" Margin="375,73,375,0"/>
+
+        <Button Name="enter" Click="enter_Click" Content="Войти" Grid.Column="0" Grid.Row="4" Template="{StaticResource овальная кнопка}" Height="60" Width="100" VerticalAlignment="Top" Margin="450,14,450,0"/>
+        <Button Name="reg" Click="reg_Click" Content="Зарегистрироваться" Grid.Column="0" Grid.Row="4" Template="{StaticResource овальная кнопка}" Height="60" Width="200" VerticalAlignment="Top" Margin="400,79,400,0"/>
+    </Grid>
+</Window>

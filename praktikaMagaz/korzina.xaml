@@ -1,0 +1,82 @@
+﻿<Window x:Class="praktikaMagaz.korzina"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:praktikaMagaz"
+        mc:Ignorable="d"
+          Title="Переплёт" Height="900" Width="1000" Background="#FFBBE6E5" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock" >
+            <Setter Property="Foreground" Value="#FF4598C6"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button" >
+            <Setter Property="Foreground" Value="#FF4598C6"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#FF364282"/>
+        </Style>
+        <ControlTemplate x:Key="овальная кнопка" TargetType="Button">
+
+            <Grid>
+                <Border x:Name="bt" CornerRadius="20" Background="{ TemplateBinding Background }"  />
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" TargetName="bt" Value="#FFC7CAF4"/>
+
+
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Name="Kata" Click="Kata_Click" Grid.Row="0" Grid.Column="1" Template="{StaticResource овальная кнопка}" Height="80" Width="80" HorizontalAlignment="Left" Margin="468,34,0,33" >
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\krush\source\repos\praktikaMagaz\praktikaMagaz\RES\poket.png"/>
+            </Button.Background>
+        </Button>
+        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Корзина"   HorizontalAlignment="Left" TextWrapping="Wrap" Width="604" FontSize="90"  VerticalAlignment="Top" Margin="198,0,0,0" />
+        <Grid x:Name="dd" Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Button Name="byu" Content="Оформить заказ" Grid.Column="6" Grid.Row="10" Template="{StaticResource овальная кнопка}" Click="byu_Click"/>
+        </Grid>
+    </Grid>
+</Window>
